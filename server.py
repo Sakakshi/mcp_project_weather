@@ -6,6 +6,7 @@ from typing import Any, Dict, Optional
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
 import httpx
+import urllib.parse
 import os
 
 # Config
@@ -69,7 +70,7 @@ async def call_tool(request: Request):
             else:
                 query = "auto"
 
-            url = f"https://wttr.in/{httpx.utils.requote_uri(query)}?format=j1"
+            url = f"https://wttr.in/{urllib.parse.quote(query)}?format=j1"
             async with httpx.AsyncClient(timeout=8.0) as client:
                 resp = await client.get(url)
                 resp.raise_for_status()
