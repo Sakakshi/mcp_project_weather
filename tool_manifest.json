@@ -1,0 +1,11 @@
+{
+  "name": "mcp-python-mini",
+  "version": "0.1.0",
+  "description": "Tiny MCP-style server exposing get_datetime, get_weather, and ping",
+  "base_url": "http://localhost:4200",
+  "tools": [
+    {"name": "get_datetime", "endpoint": "/call", "method": "POST"},
+    {"name": "get_weather", "endpoint": "/call", "method": "POST"},
+    {"name": "ping", "endpoint": "/call", "method": "POST"}
+  ]
+}
